@@ -1,0 +1,142 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Gestão de Ensino Especial API",
+    "version": "1.0.0",
+    "description": "API para gerenciar professores, alunos, eventos, e mais."
+  },
+  "paths": {
+    "/api/teachers": {
+      "get": {
+        "summary": "Listar todos os professores",
+        "responses": {
+          "200": {
+            "description": "Lista de professores",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Teacher"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Criar um novo professor",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Teacher"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Professor criado com sucesso"
+          }
+        }
+      }
+    },
+    "/api/students": {
+      "get": {
+        "summary": "Listar todos os alunos",
+        "responses": {
+          "200": {
+            "description": "Lista de alunos",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Student"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Criar um novo aluno",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Student"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Aluno criado com sucesso"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Teacher": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "example": "7a6cc1282c5f6ec0235acd2bfa780145aa2a67fd"
+        },
+        "name": {
+          "type": "string",
+          "example": "Judite Heeler"
+        },
+        "school_disciplines": {
+          "type": "string",
+          "example": "Artes, Português"
+        },
+        "contact": {
+          "type": "string",
+          "example": "j.heeler@gmail"
+        },
+        "phone_number": {
+          "type": "string",
+          "example": "48 9696 5858"
+        },
+        "status": {
+          "type": "string",
+          "example": "on"
+        }
+      }
+    },
+    "Student": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "example": "7a6cc1282c5f6ec0235acd2bfa780145aa2a67fd"
+        },
+        "name": {
+          "type": "string",
+          "example": "Bingo Heeler"
+        },
+        "age": {
+          "type": "string",
+          "example": "6"
+        },
+        "parents": {
+          "type": "string",
+          "example": "Bandit Heeler e Chilli Heeler"
+        },
+        "phone_number": {
+          "type": "string",
+          "example": "48 9696 5858"
+        },
+        "special_needs": {
+          "type": "string",
+          "example": "Síndrome de Down"
+        },
+        "status": {
+          "type": "string",
+          "example": "on"
+        }
+      }
+    }
+  }
+}
